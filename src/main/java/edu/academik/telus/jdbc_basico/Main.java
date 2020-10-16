@@ -43,7 +43,6 @@ public class Main {
         // try with resource ---> el va  a cerrar el stmt
         try (PreparedStatement stmt = conn.prepareStatement(queryString)) {
             try (ResultSet rs = stmt.executeQuery()) {
-                //int totalColumnas = rs.getMetaData().getColumnCount();
                 while (rs.next()) {
                     int productoId  = rs.getInt("producto_id");
                     int codigo = rs.getInt("codigo");
@@ -70,7 +69,6 @@ public class Main {
         // try with resource ---> el va  a cerrar el stmt
         try (PreparedStatement stmt = conn.prepareStatement(queryString)) {
             try (ResultSet rs = stmt.executeQuery()) {
-                //int totalColumnas = rs.getMetaData().getColumnCount();
                 while (rs.next()) {
                     int clienteId = rs.getInt("cliente_id");
                     String nombre = rs.getString("nombre");
@@ -96,7 +94,6 @@ public class Main {
         // try with resource ---> el va  a cerrar el stmt
         try (PreparedStatement stmt = conn.prepareStatement(queryString)) {
             try (ResultSet rs = stmt.executeQuery()) {
-                //int totalColumnas = rs.getMetaData().getColumnCount();
                 while (rs.next()) {
                     int facturaId = rs.getInt("factura_id");
                     String numero = rs.getString("numero");
@@ -116,7 +113,6 @@ public class Main {
         }
     
     private static void countFacturas(Connection conn) throws SQLException {
-        boolean hola = false;
         String queryString = "SELECT numero,COUNT(*)AS NumberOfFact FROM factura  GROUP BY numero";        
         
         try (PreparedStatement stmt = conn.prepareStatement(queryString)) {
@@ -128,7 +124,6 @@ public class Main {
 
                         System.out.println("numero: " +numero);
                         System.out.println("Suma de facturas: "+facturas);
-                        String queryString2 = "SELECT * FROM factura";
                         
                         System.out.println("###################");
                         System.out.println("");
